@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color: rgb(196, 185, 185);
+    }
+   #pet{
+        background-color: rgb(196, 185, 185);
+        box-sizing: border-box;
+
+    }
+    h2{
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 80px;
+    }
+    section{
+        margin: 20px 110px 40px;
+    }
+    button{
+        
+        padding: 9px 5px;
+        margin-left: 690px;
+        align-content: center;
+    
+    }
+   a{
+       text-decoration: none;
+   }
+   
+
+</style>
+<body>
+    {% block content%}
+    <div class="pet">
+        <h2>WELCOME TO DOCTAPP V1</h2>
+        <section>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, sit, magni
+                optio, ut asperiores aliquam ullam officia aliquid nostrum dolor amet. Doloremque accusamus quos delectus voluptatum ut unde sed cum ex doloribus suscipit deleniti dolores reprehenderit atque aperiam iste molestiae corrupti, quaerat, quibusdam sapiente, quo magni eum. Voluptatum voluptate iste sapiente unde 
+                similique exercitationem rem distinctio. Veritatis mollitia ratione voluptate!</p><br>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, unde voluptatem. Asperiores sapiente quas beatae sint quos corporis, odit iste temporibus commodi! Pariatur, ullam numquam perspiciatis
+                    , rem necessitatibus culpa impedit aliquid aperiam exercitationem consequuntur possimus aliquam placeat. Optio, ipsa itaque.</p>
+
+        </section>
+     
+        
+
+        <center><h3> Thank you for Logging In {{user.username}} !!!! </h3></center> <br>
+           <form action="{% url 'logout' %}" method="post">
+               {% csrf_token %}
+            <button type="submit" ><h3> <a href="{% url 'login' %}">Sign Out</a></h3></button>
+           
+           </form>
+            
+       
+       </div>
+       {% endblock %}
+</body>
+</html>

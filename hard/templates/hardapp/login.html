@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Here</title>
+    
+    <style>
+        .container{
+            margin :auto;
+            width:40%;
+            background-color: rgb(214, 214, 206);
+        }
+        form{
+            text-align: center;
+            margin-top: 30px;
+        }
+        h1{
+            text-align:center;
+            margin-top: 60px;
+            padding-top:20px;
+        }
+        button[type=submit]{
+           margin-bottom: 20px;
+        }
+        .mess{
+            color: brown;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            display: inline-block;
+        word-spacing: 2px;
+        
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+ <div class="container">
+    <h1>LOGIN FORM</h1>
+    <div id="messages" class="mess"></div>
+ 
+   
+        <form  method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            Username:
+            <input type="text" name="username" id="user" class="username" data-validation="required" placeholder="Enter username"autocomplete=
+            "off" data-validation-error-msg="Enter your username or firstname"><br><br>
+            password: 
+            <input type="password" name="password" id="pass" class="password" data-validation="required" placeholder="enter password"autocomplete=
+            "off" data-validation-error-msg="Enter your Password"><br><br>
+            <button type="submit" >Sign In</button>
+            <hr>
+            <a href="{% url 'password_reset' %}">Did you forget your Password   ?</a> <a href="{% url 'register' %}">Sign UP</a>
+            <br><br>
+
+        </form>
+ </div>
+  {% endblock %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    
+ <script>
+ 
+        $.validate({
+
+             modules : 'toggleDisabled',// only the submit form will be active when the all form is filled in
+              
+          });
+ </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+  <style>
+      body{
+            background-color: darkkhaki;
+      }
+      a{
+          text-decoration: none;
+      }
+  </style>
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="messages" class="mess"></div>
+    <form   name= "forms" id="form" action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+     <table  align="center" width="400" bgcolor="#CCCCCC" >
+      <caption><h2>Registration form</h2></caption>
+        <tr>
+           <th>Enter your first name</th>
+          <td><input type="text"  name="name" id="fn1" data-validation="length alphanumeric" data-validation-length="max10" title="enter your first name" placeholder="enter your first name" autocomplete="off"/></td>
+        </div>
+        </tr>
+        <tr>
+           <th>Enter your last name</th>
+           <td><input type="text" id="lastname" autocomplete="off" name="ln" data-validation="length alphanumeric" data-validation="required" data-validation-length="max15"/></td>
+        </tr>
+        <tr>
+           <th>Enter your password</th>
+           <td><input type="password" id="password" data-validation-error-msg="please enter password" maxlength="15" autocomplete="off" name="password_confirmation" data-validation= "required strength length" 
+            data-validation-length ="min8"/></td>
+        </tr>
+        <tr>
+            <th>ReEnter your password</th>
+            <td><input type="password" id="confirm" data-validation-error-msg="passwords dont match" maxlength="15" autocomplete="off" name="password" data-validation = "required confirmation" data-validation="required"/></td>
+        </tr>
+        <tr>
+            <th>Enter your email</th>
+            <td><input type="email" name="email" autocomplete="off" id="email" data-validation="email required"/></td>
+        </tr>
+        <tr>
+            <th>Enter your mobile</th>
+            <td><input type="number"name="num" autocomplete="off" id="num" data-validation=" required" /></td>
+        </tr>
+        <tr>
+            <th>Enter your address</th>
+            <td><textarea rows="8" cols="20" maxlength="25" name="address" data-validation="required" 
+                data-validation-error-msg="Enter your Address"></textarea></td>
+        </tr>
+        <tr>
+            <th>Select your gender</th>
+            <td>
+             male<input type="radio" name="g" value="male" data-validation="required length"  data-validation-length ="min2" data-validation-error-msg="You have to select either male or female"/>
+            female<input type="radio" name="g" value="female"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Select your hobbies</th>
+            <td>
+            hobby1<input type="checkbox" name="x[]" value="hobby1" data-validation="checkbox_group" data-validation-qty="min2"/>
+            hobby2<input type="checkbox" name="x[]" value="hobby2"/>
+            hobby3<input type="checkbox" name="x[]" value="hobby3"/>
+           </td>
+        </tr>
+        <tr>
+            <th>Select your DOB</th>
+            <td><input type="date" name="datetoday" autocomplete="off" placeholder="dd/mm/yyyy" data-validation="date required"/></td>
+        </tr>
+        <tr>
+            <th>Select your Country</th>
+            <td>
+            <select name="country" data-validation="required length" data-validation-length="min1" >
+            <option value="" selected="selected" disabled="disabled"name="country">Select your country</option>
+            <option value="India">India</option>
+            <option value="Pakistan">Pakistan</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Upload your pic</th>
+            <td><input type="file" name="file" data-validation="required" data-validation-allowing="jpg, png"  data-validation-max-size="300kb" 
+                data-validation-error-msg-required="No image selected"/></td>
+        </tr>
+        <tr>
+             <td colspan="2" align="center"><input type="submit" value="Save My Data" id="submit"/>
+             <input type="reset" value="Reset Data"/>
+             </td>
+        </tr>
+       <tr></tr>
+       <tr></tr><tr></tr><tr></tr>
+        <tr>
+            <th colspan="2" >Already have an account ?</th>
+        </tr>
+        <tr>
+            <th colspan="2"><a href="{% url 'login' %}">Sign In</a></th>
+
+        </tr>
+         <br>
+     </table>
+     
+        </form>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script>
+ 
+            $.validate({
+               
+            });
+    
+    </script>
+</body>
+</html>
